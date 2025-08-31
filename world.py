@@ -136,19 +136,19 @@ class QuantumRLEnv:
     
     def step(self, action):
         x, y, z = self.agent_position
-        if action == 0:    # 前进
+        if action == 1:    # move left
             self.agent_position = (x + 1, y, z )
-        elif action == 1:  # 后退
+        elif action == 2:  # move right
             self.agent_position = (x - 1, y, z )
-        elif action == 2:  # 左移
+        elif action == 3:  # move up
             self.agent_position = (x , y + 1, z)
-        elif action == 3:  # 右移
-            self.agent_position = (x , y - 1, z)
-        elif action == 4:  # 上移
+        elif action == 4:  # move down
+            self.agent_osition = (x , y - 1, z)
+        elif action == 5:  # move front
             self.agent_position = (x , y, z + 1)
-        elif action == 5:  # 下移
+        elif action == 6:  # move backword
             self.agent_position = (x , y, z - 1)
-        elif action == 6:  # 交互
+        elif action == 0:  # interact
             self.interact_with_quantum_field()
         
         reward = self.calculate_reward()
@@ -213,7 +213,6 @@ def main():
             
             if done:
                 break
-        
         if episode % 100 == 0:
             print(f"Episode: {episode}, Total Reward: {total_reward}")
     
