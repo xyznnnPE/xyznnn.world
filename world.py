@@ -120,7 +120,7 @@ class QuantumRLEnv:
         self.world = QuantumWorld()
         self.agent_position = (0, 1, 0)
         self.actions = ["move_forward", "move_backward", "move_left", "move_right", "move_up", "move_down", "interact"]
-        self.state_size = 10  # 简化状态表示
+        self.state_size = 16  # 简化状态表示
         self.action_size = len(self.actions)
     
     def get_state(self):
@@ -222,4 +222,5 @@ def main():
     pyglet.app.run()
 
 if __name__ == '__main__':
+
     main()
