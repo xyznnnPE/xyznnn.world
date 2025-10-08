@@ -54,13 +54,13 @@ class QuantumRenderer:
             self.quark_graphics[i] = self.create_quark_mesh(x, y, z, color)
     
     def cube_vertices(self, x, y, z, n):
-        return [
-             "'x+n,y+n,z+n', 'x+n,z+n,y+n', 'y+n,z+n,x+n', 'z+n,y+n,x+n'",
-             "'x+n,z+n,y-n', 'x+n,y+n,z-n', 'z+n,y+n,x-n', 'y+n,z+n,x-n'",
-             "'y+n,x-n,z+n', 'y+n,z-n,x+n', 'x+n,z-n,y+n', 'z+n,x-n,y+n'",
-             "'y-n,z+n,x-n', 'y-n,x+n,z-n', 'z-n,x+n,y-n', 'x-n,z+n,y-n'",
-             "'z-n,x-n,y+n', 'z-n,y-n,x+n', 'x-n,y-n,z+n', 'y-n,x-n,z+n'",
-             "'z-n,y-n,x-n', 'z-n,x-n,y-n', 'y-n,x-n,z-n', 'x-n,y-n,z-n'",
+        return [ 
+        (x+n,y-n,z+n,  x+n,y-n,z-n,  x+n,y+n,z-n,  x+n,y+n,z+n), # Right face (x+n)
+        (x-n,y-n,z-n,  x-n,y-n,z+n,  x-n,y+n,z+n,  x-n,y+n,z-n), # Left face (x-n)
+        (x-n,y+n,z-n,  x-n,y+n,z+n,  x+n,y+n,z+n,  x+n,y+n,z-n), # Top face (y+n)
+        (x-n,y-n,z-n,  x+n,y-n,z-n,  x+n,y-n,z+n,  x-n,y-n,z+n), # Bottom face (y-n)
+        (x-n,y-n,z+n,  x+n,y-n,z+n,  x+n,y+n,z+n,  x-n,y+n,z+n), # Front face (z+n)
+        (x-n,y-n,z-n,  x-n,y+n,z-n,  x+n,y+n,z-n,  x+n,y-n,z-n), # Back face (z-n)
               ]
     
     def update(self):
@@ -223,3 +223,4 @@ def main():
 if __name__ == '__main__':
 
     main()
+
